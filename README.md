@@ -8,7 +8,7 @@ We are the tool's first user. It also runs in four other codebases, but those ar
 
 - `log.md` — one entry per incident, newest first. The heading is the date, the kind of mistake, and how bad it was (low / medium / high). The body is what happened, the root cause as a chain of whys, the guardrail, and its status. Entries do not close until a guardrail exists.
 - `postmortems/` — the longer write-up behind an entry, including what the fix does not cover. Every entry has one.
-- `guardrails/` — the hooks that came out of the entries: shell scripts the harness runs before the agent's shell command; they can deny it.
+- `guardrails/` — the hooks that came out of the entries. Some run in the harness, before the agent's shell command, and can deny it; some are git hooks in the repo the agent commits to. Either way they are shell scripts that exit non-zero.
 - `tests/` — one repro set per guardrail, runnable from the repo root: `bash tests/<name>.sh`. Where the log says a guardrail was tested, the test is here.
 
 ## What is not here
